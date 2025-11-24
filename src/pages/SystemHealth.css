@@ -1,0 +1,353 @@
+.system-health-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.health-header {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.health-header h2 {
+  margin: 0 0 10px 0;
+  color: #2c3e50;
+  font-size: 32px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.health-header p {
+  margin: 0;
+  color: #7f8c8d;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.health-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin-bottom: 30px;
+}
+
+.metric-card {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border-left: 4px solid;
+  position: relative;
+  overflow: hidden;
+}
+
+.metric-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--metric-color, #3498db), transparent);
+}
+
+.metric-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.metric-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.metric-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 24px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.metric-card:hover .metric-icon {
+  transform: scale(1.1);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.metric-info h3 {
+  margin: 0 0 8px 0;
+  color: #2c3e50;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.metric-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: #2c3e50;
+  display: block;
+}
+
+.metric-progress {
+  background: #ecf0f1;
+  border-radius: 10px;
+  height: 12px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-bar {
+  height: 100%;
+  border-radius: 10px;
+  transition: all 0.8s ease;
+  position: relative;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.progress-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(255,255,255,0.4) 50%, 
+    transparent 100%);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Performance specific styles */
+.metric-card:nth-child(1) .metric-icon {
+  background: linear-gradient(135deg, #27ae60, #2ecc71);
+}
+
+.metric-card:nth-child(2) .metric-icon {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+}
+
+.metric-card:nth-child(3) .metric-icon {
+  background: linear-gradient(135deg, #9b59b6, #8e44ad);
+}
+
+.metric-card:nth-child(4) .metric-icon {
+  background: linear-gradient(135deg, #2ecc71, #27ae60);
+}
+
+.system-status-overview {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+.status-card {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.status-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+}
+
+.status-card.healthy::before {
+  background: linear-gradient(90deg, #27ae60, #2ecc71);
+}
+
+.status-card.uptime::before {
+  background: linear-gradient(90deg, #3498db, #2980b9);
+}
+
+.status-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.status-card h4 {
+  margin: 0 0 20px 0;
+  color: #2c3e50;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.status-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #27ae60;
+  animation: pulse 2s infinite;
+  box-shadow: 0 0 10px rgba(39, 174, 96, 0.5);
+}
+
+.status-indicator span {
+  font-size: 18px;
+  font-weight: 600;
+  color: #27ae60;
+}
+
+.status-card p {
+  margin: 0;
+  color: #7f8c8d;
+  font-size: 14px;
+}
+
+.uptime-value {
+  font-size: 42px;
+  font-weight: 700;
+  color: #3498db;
+  margin-bottom: 10px;
+  text-shadow: 0 2px 4px rgba(52, 152, 219, 0.3);
+}
+
+/* Alert states */
+.metric-card.warning .metric-icon {
+  background: linear-gradient(135deg, #f39c12, #e67e22);
+}
+
+.metric-card.critical .metric-icon {
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+}
+
+.status-card.warning::before {
+  background: linear-gradient(90deg, #f39c12, #e67e22);
+}
+
+.status-card.critical::before {
+  background: linear-gradient(90deg, #e74c3c, #c0392b);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .system-health-container {
+    padding: 15px;
+  }
+
+  .health-header {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+
+  .health-header h2 {
+    font-size: 24px;
+  }
+
+  .health-metrics {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .metric-card {
+    padding: 20px;
+  }
+
+  .metric-header {
+    gap: 12px;
+  }
+
+  .metric-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+
+  .metric-value {
+    font-size: 24px;
+  }
+
+  .system-status-overview {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .status-card {
+    padding: 25px;
+  }
+
+  .uptime-value {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 480px) {
+  .health-header h2 {
+    font-size: 20px;
+  }
+
+  .metric-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .metric-info h3 {
+    font-size: 16px;
+  }
+
+  .metric-value {
+    font-size: 20px;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .metric-card,
+  .health-header,
+  .status-card {
+    background: #2c3e50;
+    color: white;
+  }
+
+  .metric-info h3,
+  .metric-value,
+  .status-card h4 {
+    color: white;
+  }
+
+  .health-header p,
+  .status-card p {
+    color: #bdc3c7;
+  }
+
+  .metric-progress {
+    background: #34495e;
+  }
+}

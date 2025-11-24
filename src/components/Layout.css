@@ -1,0 +1,62 @@
+/* src/components/Layout.css */
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  width: 100%;
+  min-height: calc(100vh - 140px); /* Adjust based on header/footer height */
+  padding: 0;
+  margin: 0;
+}
+
+/* Ensure proper box sizing */
+.layout * {
+  box-sizing: border-box;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Optional: Add some global styles that might be useful */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #ffffff;
+  color: #333333;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .main-content {
+    min-height: calc(100vh - 120px); /* Adjust for smaller header/footer on mobile */
+  }
+}
+
+/* Ensure content doesn't get hidden behind header */
+.main-content {
+  padding-top: 0; /* Header is sticky, so no need for top padding */
+}
+
+/* Optional: Add loading state styles if needed */
+.layout.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* Print styles */
+@media print {
+  .main-content {
+    min-height: auto;
+  }
+}
